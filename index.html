@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>【重要】Time Regulus 更新のお知らせ</title>
+ 
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-R7PW7DY4GF"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-R7PW7DY4GF');
+</script>
+  
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    /* 元のアプリのスタイル変数の一部を再利用して見た目を統一 */
+    :root {
+      --bg-dark: #0e0f11;
+      --accent: #00ffe0; /* 水色/メインカラー */
+      --text-main: #e0e0e0;
+      --text-sub: #999;
+      --pink-highlight: #ff69b4; /* ピンク色 */
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      text-align: center;
+      padding: 20px;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      box-sizing: border-box;
+    }
+    .container {
+      max-width: 600px;
+      margin-top: 50px;
+      padding: 20px;
+      border: 1px solid var(--accent);
+      border-radius: 12px;
+      background-color: #151c27;
+      box-shadow: 0 0 20px rgba(0, 255, 224, 0.3);
+    }
+    .fkz {
+        font-family: 'serif'; 
+        color: var(--accent);
+        text-shadow: 0 0 15px rgba(0, 255, 224, 0.7);
+        margin-bottom: 0;
+        font-size: 38px;
+        opacity: 0; 
+        animation: fadeIn 2s forwards; 
+    }
+    .subtitle {
+        color: var(--text-sub);
+        margin-top: 4px;
+        margin-bottom: 20px;
+        font-size: 16px; 
+        opacity: 0; 
+        animation: fadeIn 2s forwards 0.5s; 
+    }
+    h2 {
+      color: var(--accent);
+      display: inline-block;
+      padding-bottom: 5px;
+      margin-top: 30px;
+    }
+    a {
+      color: var(--accent);
+      font-weight: bold;
+    }
+    img {
+      max-width: 250px;
+      height: auto;
+      margin: 20px auto;
+      display: block;
+      border: 4px solid var(--text-main);
+      border-radius: 8px;
+    }
+    .url-link {
+        word-break: break-all;
+        display: block;
+        margin-top: 10px;
+        font-size: 18px;
+    }
+    .pink-highlight-text {
+        color: var(--pink-highlight); 
+        font-weight: bold;
+        font-size: 17px; 
+    }
+
+    /* フェードインアニメーションの定義 */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1 class="fkz">Time Regulus</h1>
+    <p class="subtitle">旧ﾊﾞｰｼﾞｮﾝ → v2.0.2 アップデートのお知らせ</p>
+    
+    <p style="font-weight: bold; font-size: 18px; margin-top: 20px;">
+        …Time Regulusはv2.0.2にﾊﾞｰｼﾞｮﾝｱｯﾌﾟしました。…
+    </p>
+
+    <h2>最新バージョンはこちらから</h2>
+    <p>新しいURLから最新バージョンを開いてください。</p>
+    <a href="https://fkz1977.github.io/Time-Regulus-2/" target="_blank" class="url-link">https://fkz1977.github.io/Time-Regulus-2/</a>
+
+    <p style="margin-top: 30px;">
+        Time Regulusは、ブラウザ方式のためiＯＳのsafariでは自動更新には対応していません。バージョンアップの際は、このページでご案内をします。</p>
+
+    <p class="pink-highlight-text">
+        safari上では旧ﾊﾞｰｼﾞｮﾝが開きますが、旧ﾊﾞｰｼﾞｮﾝを開いたその状態で、ホーム画面に追加し直すことで、最新版が画面に追加されます。
+    </p>
+
+    <p style="margin-top: 20px; font-weight: bold;">ホーム画面に追加若しくはダウンロードして電波が届かないところでも使えるアプリとしてご活用ください。</p>
+    
+    <img src="QRCorde-z.PNG" alt="新しいTime RegulusのQRコード">
+
+  </div>
+
+  <script src="register-sw.js"></script> 
+</body>
+</html>
