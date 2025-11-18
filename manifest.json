@@ -1,0 +1,15 @@
+{
+  // ... その他の設定
+  "icons": [
+    {
+      "src": "icon-192_zzz.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "icon-512_zzz.jpg",
+      "sizes": "512x512",
+      "type": "image/jpeg"
+    }
+  ]
+}
