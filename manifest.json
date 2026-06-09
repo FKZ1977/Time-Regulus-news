@@ -7,9 +7,9 @@
       "type": "image/png"
     },
     {
-      "src": "icon-512_zzz.jpg",
+      "src": "icon-512_zzz.png",
       "sizes": "512x512",
-      "type": "image/jpeg"
+      "type": "image/png"
     }
   ]
 }
