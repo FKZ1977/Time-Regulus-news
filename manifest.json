@@ -1,5 +1,11 @@
 {
-  // ... その他の設定
+  "name": "Regulus News",
+  "short_name": "RegulusNews",
+  "description": "Time Regulus アップデートのお知らせ",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#0e0f11",
+  "theme_color": "#00ffe0",
   "icons": [
     {
       "src": "icon-192_zzz.png",

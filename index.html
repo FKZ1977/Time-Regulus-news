@@ -121,7 +121,7 @@
 下のリンクからページを開き、画面下部（または右上）のメニューから『ホーム画面に追加』して最新バージョンをご利用ください。</p>
     <a href="https://fkz1977.github.io/Time-Regulus-2/" style="font-size: 14px;"  Style="text-align: left;" target="_blank" class="url-link">https://fkz1977.github.io/Time-Regulus-2/</a>
     
-<img src="QRCorde-z.PNG" alt="新しいTime RegulusのQRコード">  
+<img id="qrCodeImg" src="QRCorde-z.PNG" alt="新しいTime RegulusのQRコード">  
 
 <p style="margin-top: 30px; text-align: left !important;">
     Time Regulusは、ブラウザ方式のためiosのsafariでは自動更新には対応していません。バージョンアップの際は、このページでご案内をします。
@@ -138,14 +138,47 @@
   </div>
 
   <script>
-    // 過去にService Worker（キャッシュの仕組み）が登録されていた場合、それを解除して常に最新を読み込むようにする
+    // 1. 過去のService Worker（キャッシュ機構）の完全解除
     if ('serviceWorker' in navigator) {
       navigator.serviceWorker.getRegistrations().then(function(registrations) {
-        for(let registration of registrations) {
+        for (let registration of registrations) {
           registration.unregister();
         }
       });
     }
+
+    // 2. ブラウザ内のCache Storageを完全にクリア（古い情報の蓄積を防止）
+    if ('caches' in window) {
+      caches.keys().then(function(names) {
+        for (let name of names) {
+          caches.delete(name);
+        }
+      });
+    }
+
+    // 3. QRコード画像の強制最新読み込み（キャッシュ回避）
+    function updateQrImage() {
+      const qrImg = document.getElementById('qrCodeImg');
+      if (qrImg) {
+        qrImg.src = 'QRCorde-z.PNG?t=' + Date.now();
+      }
+    }
+    updateQrImage();
+
+    // 4. ホーム画面からの起動時やバックグラウンド復帰時の自動リロード（bfcache対策）
+    window.addEventListener('pageshow', function(event) {
+      if (event.persisted) {
+        // バックグラウンドの古い画面から復元された場合は強制的に最新を取得
+        window.location.reload();
+      }
+    });
+
+    // 5. アプリ画面がアクティブ（前面）になった時にも最新QRを確認
+    document.addEventListener('visibilitychange', function() {
+      if (document.visibilityState === 'visible') {
+        updateQrImage();
+      }
+    });
   </script>
 </body>
 </html>
