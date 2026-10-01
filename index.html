@@ -4,16 +4,16 @@
   <meta charset="UTF-8">
   <title>Regulus News🦖</title>
  
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-LC92TT3087"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LC92TT3087"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
 
-  gtag('config', 'G-LC92TT3087');
-</script>
+    gtag('config', 'G-LC92TT3087');
+  </script>
   
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate, max-age=0">
   <meta http-equiv="Pragma" content="no-cache">
   <meta http-equiv="Expires" content="0">
@@ -22,7 +22,6 @@
   <link rel="apple-touch-icon" sizes="512x512" href="icon-512_zzz.png" />
   <link rel="manifest" href="manifest.json">
   <style>
-
     /* 元のアプリのスタイル変数の一部を再利用して見た目を統一 */
     :root {
       --bg-dark: #0e0f11;
@@ -36,7 +35,7 @@
       background-color: var(--bg-dark);
       color: var(--text-main);
       text-align: center;
-      padding: 20px;
+      padding: 20px 15px;
       margin: 0;
       display: flex;
       flex-direction: column;
@@ -45,40 +44,86 @@
       box-sizing: border-box;
     }
     .container {
+      width: 100%;
       max-width: 600px;
-      margin-top: 50px;
-      padding: 20px;
+      margin-top: 30px;
+      padding: 20px 24px;
       border: 1px solid var(--accent);
       border-radius: 12px;
       background-color: #151c27;
       box-shadow: 0 0 20px rgba(0, 255, 224, 0.3);
+      box-sizing: border-box;
+    }
+    .lang-bar {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 12px;
+    }
+    .lang-selector {
+      background: #0e131b;
+      border: 1px solid var(--accent);
+      color: var(--text-main);
+      border-radius: 6px;
+      padding: 5px 8px;
+      font-size: 13px;
+      outline: none;
+      cursor: pointer;
+      box-shadow: 0 0 8px rgba(0, 255, 224, 0.15);
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .lang-selector:focus, .lang-selector:hover {
+      border-color: #fff;
+      box-shadow: 0 0 12px rgba(0, 255, 224, 0.4);
     }
     .fkz {
-        font-family: 'serif'; 
-        color: var(--accent);
-        text-shadow: 0 0 15px rgba(0, 255, 224, 0.7);
-        margin-bottom: 0;
-        font-size: 38px;
-        opacity: 0; 
-        animation: fadeIn 2s forwards; 
+      font-family: 'serif'; 
+      color: var(--accent);
+      text-shadow: 0 0 15px rgba(0, 255, 224, 0.7);
+      margin: 0;
+      font-size: 38px;
+      opacity: 0; 
+      animation: fadeIn 2s forwards; 
     }
     .subtitle {
-        color: var(--text-sub);
-        margin-top: 4px;
-        margin-bottom: 20px;
-        font-size: 16px; 
-        opacity: 0; 
-        animation: fadeIn 2s forwards 0.5s; 
+      color: var(--text-sub);
+      margin-top: 4px;
+      margin-bottom: 20px;
+      font-size: 16px; 
+      opacity: 0; 
+      animation: fadeIn 2s forwards 0.5s; 
+    }
+    .notice-header {
+      font-weight: bold;
+      font-size: 18px;
+      margin-top: 20px;
+      margin-bottom: 0;
+      line-height: 1.5;
+    }
+    .notice-box {
+      font-weight: bold;
+      font-size: 16px;
+      margin-top: 15px;
+      line-height: 1.7;
+      text-align: left !important;
+      word-break: break-word;
     }
     h2 {
       color: var(--accent);
       display: inline-block;
       padding-bottom: 5px;
       margin-top: 30px;
+      font-size: 20px;
     }
     a {
       color: var(--accent);
       font-weight: bold;
+      text-decoration: underline;
+    }
+    a:hover {
+      color: #fff;
+      text-shadow: 0 0 8px var(--accent);
     }
     img {
       max-width: 250px;
@@ -89,15 +134,18 @@
       border-radius: 8px;
     }
     .url-link {
-        word-break: break-all;
-        display: block;
-        margin-top: 10px;
-        font-size: 18px;
+      word-break: break-all;
+      display: block;
+      margin-top: 10px;
+      font-size: 16px;
     }
     .pink-highlight-text {
-        color: var(--pink-highlight); 
-        font-weight: bold;
-        font-size: 17px; 
+      color: var(--pink-highlight); 
+      font-weight: bold;
+      font-size: 16px; 
+    }
+    p {
+      line-height: 1.6;
     }
 
     /* フェードインアニメーションの定義 */
@@ -109,37 +157,250 @@
 </head>
 <body>
   <div class="container">
+    <!-- 言語切り替えバー -->
+    <div class="lang-bar">
+      <span style="font-size: 16px;">🌐</span>
+      <select id="langSelector" class="lang-selector" onchange="setLanguage(this.value)">
+        <option value="ja">🇯🇵 JP 日本語</option>
+        <option value="en">🇺🇸 EN English</option>
+        <option value="nl">🇳🇱 NL Nederlands</option>
+        <option value="pt">🇧🇷 PT Português</option>
+        <option value="es">🇪🇸 ES Español</option>
+        <option value="fr">🇫🇷 FR Français</option>
+        <option value="it">🇮🇹 IT Italiano</option>
+        <option value="de">🇩🇪 DE Deutsch</option>
+        <option value="uk">🇺🇦 UK Українська</option>
+        <option value="id">🇮🇩 ID Indonesia</option>
+        <option value="ko">🇰🇷 KO 한국어</option>
+        <option value="tr">🇹🇷 TR Türkçe</option>
+      </select>
+    </div>
+
     <h1 class="fkz">Time Regulus</h1>
-    <p class="subtitle">v3.3.3 アップデートのお知らせ (2026/09/23)</p>
+    <p class="subtitle" data-i18n="subtitle">v3.3.3 アップデートのお知らせ (2026/09/23)</p>
     
-    <p style="font-weight: bold; font-size: 18px; margin-top: 20px; line-height: 1.5;">
-        ...Time Regulus...<br>
-        ＜最新版はv3.3.3です＞<br>
-...更新の頻度が多くてご迷惑をお掛けしています。m(_ _)m　操作性の向上を目的としたUIの調整等によるもので、旧ﾊﾞｰｼﾞｮﾝのままでも計算結果が変わることはありませんのでご安心ください。...
+    <p class="notice-header" data-i18n="notice_header">
+      ...Time Regulus...<br>
+      ＜最新版はv3.3.3です＞
     </p>
 
-    <h2>最新バージョンはこちらから</h2>
-    <p Style="text-align: left;">
-下のリンクからページを開き、画面下部（または右上）のメニューから『ホーム画面に追加』して最新バージョンをご利用ください。</p>
-    <a href="https://fkz1977.github.io/Time-Regulus-2/" style="font-size: 14px;"  Style="text-align: left;" target="_blank" class="url-link">https://fkz1977.github.io/Time-Regulus-2/</a>
+    <p class="notice-box" data-i18n="notice_msg">
+      …更新の際はこのページでご案内をしています。<br>
+      　ＵＩの変更・調整等によるもので、旧ﾊﾞｰｼﾞｮﾝのままでも計算結果が変わることはありませんので、ご安心ください。<br>
+      　更新の度にご迷惑、ご心配をお掛けして申し訳ありません。m(_ _)m…
+    </p>
+
+    <h2 data-i18n="section_title">最新バージョンはこちらから</h2>
+    <p data-i18n="instruction" style="text-align: left;">
+      下のリンクからページを開き、画面下部（または右上）のメニューから『ホーム画面に追加』して最新バージョンをご利用ください。
+    </p>
+    <a href="https://fkz1977.github.io/Time-Regulus-2/" target="_blank" class="url-link">https://fkz1977.github.io/Time-Regulus-2/</a>
     
-<img id="qrCodeImg" src="QRCorde-z.PNG" alt="新しいTime RegulusのQRコード">  
+    <img id="qrCodeImg" src="QRCorde-z.PNG" alt="新しいTime RegulusのQRコード" data-i18n-alt="qr_alt">  
 
-<p style="margin-top: 30px; text-align: left !important;">
-    Time Regulusは、ブラウザ方式のためiosのsafariでは自動更新には対応していません。バージョンアップの際は、このページでご案内をします。
-</p>
+    <p data-i18n="note_safari" style="margin-top: 30px; text-align: left !important;">
+      Time Regulusは、ブラウザ方式のためiOSのSafariでは自動更新に対応していません。
+    </p>
 
-<p class="pink-highlight-text" style="text-align: left !important;">
-    safari上では旧バージョンが開きますが、旧バージョンを開いたその状態で、ホーム画面に追加し直すことで、最新版がアプリとしてホーム画面に追加されます。
-</p>
+    <p data-i18n="note_pink" class="pink-highlight-text" style="text-align: left !important;">
+      Safari上では旧バージョンが開きますが、旧バージョンを開いたその状態で、ホーム画面に追加し直すことで、最新版がホーム画面に追加されます。
+    </p>
 
-<p style="margin-top: 20px; font-weight: bold; text-align: left !important;">
-    ホーム画面に追加若しくはダウンロードして電波が届かないところでも使えるアプリとしてご活用ください。
-</p>
-
+    <p data-i18n="note_offline" style="margin-top: 20px; font-weight: bold; text-align: left !important;">
+      ホーム画面に追加、もしくはダウンロードして、電波が届かないところでも使えるアプリとしてご活用ください。
+    </p>
   </div>
 
   <script>
+    // 12言語の多言語辞書定義
+    const i18n_news = {
+      ja: {
+        subtitle: "v3.3.3 アップデートのお知らせ (2026/09/23)",
+        notice_header: "...Time Regulus...<br>＜最新版はv3.3.3です＞",
+        notice_msg: "…更新の際はこのページでご案内をしています。<br>　ＵＩの変更・調整等によるもので、旧ﾊﾞｰｼﾞｮﾝのままでも計算結果が変わることはありませんので、ご安心ください。<br>　更新の度にご迷惑、ご心配をお掛けして申し訳ありません。m(_ _)m…",
+        section_title: "最新バージョンはこちらから",
+        instruction: "下のリンクからページを開き、画面下部（または右上）のメニューから『ホーム画面に追加』して最新バージョンをご利用ください。",
+        qr_alt: "新しいTime RegulusのQRコード",
+        note_safari: "Time Regulusは、ブラウザ方式のためiOSのSafariでは自動更新に対応していません。",
+        note_pink: "Safari上では旧バージョンが開きますが、旧バージョンを開いたその状態で、ホーム画面に追加し直すことで、最新版がホーム画面に追加されます。",
+        note_offline: "ホーム画面に追加、もしくはダウンロードして、電波が届かないところでも使えるアプリとしてご活用ください。"
+      },
+      en: {
+        subtitle: "v3.3.3 Update Notice (2026/09/23)",
+        notice_header: "...Time Regulus...<br>&lt;The latest version is v3.3.3&gt;",
+        notice_msg: "...Updates are announced on this page.<br>&emsp;These updates are for UI improvements and adjustments. Calculation results remain completely accurate even on older versions, so please rest assured.<br>&emsp;We sincerely apologize for any inconvenience or concern caused by frequent updates. m(_ _)m...",
+        section_title: "Get the Latest Version Here",
+        instruction: "Open the page using the link below, and tap \"Add to Home Screen\" from the menu at the bottom (or top right) to use the latest version.",
+        qr_alt: "QR Code for New Time Regulus",
+        note_safari: "Because Time Regulus runs in the browser, automatic updates are not supported in iOS Safari.",
+        note_pink: "Although the old version may open in Safari, re-adding it to your Home Screen from that state will add the latest version to your Home Screen.",
+        note_offline: "Add it to your Home Screen or install it to use it as an app that works even in places without mobile reception."
+      },
+      nl: {
+        subtitle: "v3.3.3 Updatebericht (2026/09/23)",
+        notice_header: "...Time Regulus...<br>&lt;De nieuwste versie is v3.3.3&gt;",
+        notice_msg: "...Updates worden op deze pagina aangekondigd.<br>&emsp;Dit betreft aanpassingen en optimalisaties van de gebruikersinterface (UI). De rekenresultaten blijven zelfs op oudere versies ongewijzigd nauwkeurig, dus maakt u zich geen zorgen.<br>&emsp;Onze excuses voor het ongemak of de bezorgdheid bij elke update. m(_ _)m...",
+        section_title: "Nieuwste versie hier verkrijgbaar",
+        instruction: "Open de pagina via de onderstaande link en kies 'Zet op beginscherm' in het menu onderaan (of rechtsboven) om de nieuwste versie te gebruiken.",
+        qr_alt: "QR-code voor de nieuwe Time Regulus",
+        note_safari: "Omdat Time Regulus in de browser werkt, worden automatische updates op iOS Safari niet ondersteund.",
+        note_pink: "Hoewel in Safari de oude versie kan openen, wordt door deze opnieuw aan het beginscherm toe te voegen de nieuwste versie aan het beginscherm toegevoegd.",
+        note_offline: "Voeg toe aan uw beginscherm of installeer de app om deze zelfs op plekken zonder bereik offline te gebruiken."
+      },
+      pt: {
+        subtitle: "Aviso de Atualização v3.3.3 (2026/09/23)",
+        notice_header: "...Time Regulus...<br>&lt;A versão mais recente é v3.3.3&gt;",
+        notice_msg: "...As atualizações são informadas nesta página.<br>&emsp;Trata-se de alterações e ajustes na interface (UI). Os resultados dos cálculos continuam exatamente os mesmos nas versões anteriores, portanto fique tranquilo.<br>&emsp;Pedimos desculpas por qualquer inconveniente ou preocupação a cada atualização. m(_ _)m...",
+        section_title: "Obtenha a Versão Mais Recente Aqui",
+        instruction: "Abra a página pelo link abaixo e selecione \"Adicionar à Tela de Início\" no menu na parte inferior (ou superior direita) para usar a versão mais recente.",
+        qr_alt: "Código QR para o novo Time Regulus",
+        note_safari: "Como o Time Regulus opera via navegador, não há suporte para atualização automática no iOS Safari.",
+        note_pink: "Embora a versão antiga possa abrir no Safari, ao adicioná-la novamente à Tela de Início nesse estado, a versão mais recente será adicionada à sua Tela de Início.",
+        note_offline: "Adicione à Tela de Início ou baixe para usar como um aplicativo disponível mesmo em locais sem sinal de rede."
+      },
+      es: {
+        subtitle: "Aviso de Actualización v3.3.3 (2026/09/23)",
+        notice_header: "...Time Regulus...<br>&lt;La versión más reciente es v3.3.3&gt;",
+        notice_msg: "...Las actualizaciones se anuncian en esta página.<br>&emsp;Se deben a ajustes y cambios en la interfaz de usuario (UI). Los resultados de los cálculos siguen siendo totalmente exactos incluso en versiones anteriores, por lo que puede usarlas con tranquilidad.<br>&emsp;Disculpen las molestias y cualquier preocupación causada con cada actualización. m(_ _)m...",
+        section_title: "Obtenga la Última Versión Aquí",
+        instruction: "Abra la página desde el enlace inferior y seleccione \"Añadir a la pantalla de inicio\" en el menú de la parte inferior (o superior derecha) para utilizar la última versión.",
+        qr_alt: "Código QR para el nuevo Time Regulus",
+        note_safari: "Dado que Time Regulus funciona a través del navegador, no admite actualizaciones automáticas en iOS Safari.",
+        note_pink: "Aunque en Safari pueda abrirse la versión anterior, si la vuelve a añadir a la pantalla de inicio en ese estado, se añadirá la versión más reciente a su pantalla de inicio.",
+        note_offline: "Añada a la pantalla de inicio o descargue para usar como una aplicación disponible incluso en lugares sin cobertura móvil."
+      },
+      fr: {
+        subtitle: "Avis de mise à jour v3.3.3 (2026/09/23)",
+        notice_header: "...Time Regulus...<br>&lt;La dernière version est la v3.3.3&gt;",
+        notice_msg: "...Les mises à jour sont annoncées sur cette page.<br>&emsp;Elles concernent des modifications et ajustements de l'interface utilisateur (UI). Les résultats des calculs restent parfaitement identiques et fiables même sur les anciennes versions, rassurez-vous.<br>&emsp;Nous vous prions de nous excuser pour la gêne ou l'inquiétude occasionnée à chaque mise à jour. m(_ _)m...",
+        section_title: "Accédez à la Dernière Version Ici",
+        instruction: "Ouvrez la page depuis le lien ci-dessous et sélectionnez \"Sur l'écran d'accueil\" dans le menu en bas (ou en haut à droite) pour utiliser la dernière version.",
+        qr_alt: "Code QR pour le nouveau Time Regulus",
+        note_safari: "Comme Time Regulus fonctionne via le navigateur, les mises à jour automatiques ne sont pas prises en charge sur iOS Safari.",
+        note_pink: "Bien que l'ancienne version s'ouvre dans Safari, en l'ajoutant à nouveau à l'écran d'accueil dans cet état, la dernière version sera ajoutée à votre écran d'accueil.",
+        note_offline: "Ajoutez à votre écran d'accueil ou installez pour l'utiliser comme une application disponible même dans les zones sans réseau."
+      },
+      it: {
+        subtitle: "Avviso di aggiornamento v3.3.3 (2026/09/23)",
+        notice_header: "...Time Regulus...<br>&lt;L'ultima versione è la v3.3.3&gt;",
+        notice_msg: "...Gli aggiornamenti vengono comunicati su questa pagina.<br>&emsp;Sono dovuti a modifiche e ottimizzazioni dell'interfaccia utente (UI). I risultati dei calcoli rimangono inalterati anche nelle versioni precedenti, pertanto potete stare tranquilli.<br>&emsp;Ci scusiamo per il disturbo e le preoccupazioni causate a ogni aggiornamento. m(_ _)m...",
+        section_title: "Ottieni l'Ultima Versione Qui",
+        instruction: "Apri la pagina dal link sottostante e seleziona \"Aggiungi a schermata Home\" dal menu in basso (o in alto a destra) per utilizzare l'ultima versione.",
+        qr_alt: "Codice QR per il nuovo Time Regulus",
+        note_safari: "Poiché Time Regulus funziona tramite browser, non supporta l'aggiornamento automatico su iOS Safari.",
+        note_pink: "Anche se in Safari si apre la vecchia versione, riaggiungendola alla schermata Home in quello stato, la versione più recente verrà aggiunta alla vostra schermata Home.",
+        note_offline: "Aggiungi alla schermata Home o scarica per utilizzarla come un'app disponibile anche dove non c'è campo."
+      },
+      de: {
+        subtitle: "v3.3.3 Update-Hinweis (2026/09/23)",
+        notice_header: "...Time Regulus...<br>&lt;Die neueste Version ist v3.3.3&gt;",
+        notice_msg: "...Aktualisierungen werden auf dieser Seite bekannt gegeben.<br>&emsp;Diese dienen Anpassungen und Optimierungen der Benutzeroberfläche (UI). Die Berechnungsergebnisse bleiben auch in älteren Versionen vollkommen unverändert präzise, sodass Sie die App unbesorgt nutzen können.<br>&emsp;Wir bitten die Unannehmlichkeiten und etwaige Verunsicherungen bei jeder Aktualisierung zu entschuldigen. m(_ _)m...",
+        section_title: "Hier geht es zur neuesten Version",
+        instruction: "Öffnen Sie die Seite über den folgenden Link und wählen Sie im Menü unten (oder oben rechts) \"Zum Home-Bildschirm\", um die neueste Version zu nutzen.",
+        qr_alt: "QR-Code für das neue Time Regulus",
+        note_safari: "Da Time Regulus browserbasiert läuft, werden automatische Updates auf iOS Safari nicht unterstützt.",
+        note_pink: "Obwohl in Safari möglicherweise die alte Version geöffnet wird, wird durch erneutes Hinzufügen zum Home-Bildschirm in diesem Zustand die neueste Version zum Home-Bildschirm hinzugefügt.",
+        note_offline: "Fügen Sie die App dem Home-Bildschirm hinzu oder laden Sie sie herunter, um sie auch an Orten ohne Empfang offline nutzen zu können."
+      },
+      uk: {
+        subtitle: "Оновлення v3.3.3 (2026/09/23)",
+        notice_header: "...Time Regulus...<br>&lt;Найновіша версія — v3.3.3&gt;",
+        notice_msg: "...Інформація про оновлення надається на цій сторінці.<br>&emsp;Вони пов'язані з покращенням та налаштуванням інтерфейсу (UI). Результати обчислень залишаються незмінними та точними навіть у старій версії, тому будьте певні у їхній надійності.<br>&emsp;Щиро перепрошуємо за можливі незручності та турботу при кожному оновленні. m(_ _)m...",
+        section_title: "Найновіша версія тут",
+        instruction: "Відкрийте сторінку за посиланням нижче та виберіть \"На початковий екран\" у меню внизу (або вгорі праворуч), щоб використовувати останню версію.",
+        qr_alt: "QR-код для нового Time Regulus",
+        note_safari: "Оскільки Time Regulus працює у браузері, автоматичне оновлення в iOS Safari не підтримується.",
+        note_pink: "Хоча в Safari може відкритися стара версія, якщо в цьому стані повторно додати її на початковий екран, найновіша версія додасться на ваш початковий екран.",
+        note_offline: "Додайте на початковий екран або завантажте, щоб користуватися додатком навіть у місцях, де немає сигналу."
+      },
+      id: {
+        subtitle: "Pemberitahuan Pembaruan v3.3.3 (2026/09/23)",
+        notice_header: "...Time Regulus...<br>&lt;Versi terbaru adalah v3.3.3&gt;",
+        notice_msg: "...Pemberitahuan pembaruan disampaikan melalui halaman ini.<br>&emsp;Pembaruan ini berkaitan dengan penyesuaian antarmuka (UI). Hasil perhitungan tetap akurat dan tidak berubah meski menggunakan versi sebelumnya, jadi jangan khawatir.<br>&emsp;Kami memohon maaf atas ketidaknyamanan atau kekhawatiran yang timbul pada setiap pembaruan. m(_ _)m...",
+        section_title: "Dapatkan Versi Terbaru di Sini",
+        instruction: "Buka halaman dari tautan di bawah ini, lalu pilih \"Tambah ke Layar Utama\" dari menu di bagian bawah (atau kanan atas) untuk menggunakan versi terbaru.",
+        qr_alt: "Kode QR untuk Time Regulus Baru",
+        note_safari: "Karena Time Regulus berbasis peramban (browser), pembaruan otomatis tidak didukung di iOS Safari.",
+        note_pink: "Meskipun versi lama terbuka di Safari, menambahkan ulang ke Layar Utama dari kondisi tersebut akan menambahkan versi terbaru ke Layar Utama Anda.",
+        note_offline: "Tambahkan ke Layar Utama atau unduh untuk memanfaatkannya sebagai aplikasi yang dapat digunakan meski di tempat tanpa sinyal."
+      },
+      ko: {
+        subtitle: "v3.3.3 업데이트 안내 (2026/09/23)",
+        notice_header: "...Time Regulus...<br>＜최신 버전은 v3.3.3입니다＞",
+        notice_msg: "…업데이트 시에는 이 페이지에서 안내해 드리고 있습니다.<br>　UI의 변경 및 조정 등에 의한 것으로, 구버전인 상태에서도 계산 결과는 변함이 없으므로 안심하고 사용해 주세요.<br>　업데이트 시마다 불편과 심려を 끼쳐 드려 죄송합니다. m(_ _)m…",
+        section_title: "최신 버전은 여기에서",
+        instruction: "아래 링크에서 페이지를 열고 화면 하단(또는 우측 상단)의 메뉴에서 '홈 화면에 추가'를 선택하여 최신 버전을 이용해 주세요.",
+        qr_alt: "새로운 Time Regulus의 QR 코드",
+        note_safari: "Time Regulus는 브라우저 방식이므로 iOS Safari에서는 자동 업데이트를 지원하지 않습니다.",
+        note_pink: "Safari상에서는 구버전이 열릴 수 있지만, 구버전이 열린 상태 그대로 '홈 화면에 추가'를 다시 진행하면 최신 버전이 홈 화면에 추가됩니다.",
+        note_offline: "홈 화면에 추가하거나 다운로드하여, 전파가 닿지 않는 곳에서도 사용 가능한 앱으로 활용해 보세요."
+      },
+      tr: {
+        subtitle: "v3.3.3 Güncelleme Bildirimi (2026/09/23)",
+        notice_header: "...Time Regulus...<br>&lt;En güncel sürüm v3.3.3'tür&gt;",
+        notice_msg: "...Güncellemeler bu sayfadan duyurulmaktadır.<br>&emsp;Bu durum kullanıcı arayüzü (UI) düzenleme ve iyileştirmelerinden kaynaklanmaktadır. Hesaplama sonuçları eski sürümlerde de kesinlikle değişmez, bu nedenle güvenle kullanabilirsiniz.<br>&emsp;Her güncellemede verdiğimiz rahatsızlık veya endişe için özür dileriz. m(_ _)m...",
+        section_title: "En Son Sürüme Buradan Ulaşın",
+        instruction: "Aşağıdaki bağlantıdan sayfayı açın ve en son sürümü kullanmak için ekranın altındaki (veya sağ üstteki) menüden \"Ana Ekrana Ekle\"yi seçin.",
+        qr_alt: "Yeni Time Regulus için QR Kodu",
+        note_safari: "Time Regulus tarayıcı tabanlı çalıştığı için iOS Safari'de otomatik güncellemeleri desteklemez.",
+        note_pink: "Safari'de eski sürüm açılsa bile, o durumdayken tekrar Ana Ekrana Ekleyerek en son sürümün ana ekranınıza eklenmesini sağlayabilirsiniz.",
+        note_offline: "Şebekenin çekmediği yerlerde bile kullanılabilen bir uygulama olarak yararlanmak için ana ekrana ekleyin veya indirin."
+      }
+    };
+
+    // 初期言語の判定（本家Time Regulusと同じlocalStorageキー 'regulus_lang' を参照、なければブラウザ言語）
+    function getInitialLanguage() {
+      const saved = localStorage.getItem("regulus_lang");
+      if (saved && i18n_news[saved]) {
+        return saved;
+      }
+      const navLang = (navigator.language || navigator.userLanguage || "ja").toLowerCase();
+      const short = navLang.slice(0, 2);
+      if (i18n_news[short]) {
+        return short;
+      }
+      return "ja";
+    }
+
+    let currentLang = getInitialLanguage();
+
+    // 言語切り替え関数
+    function setLanguage(lang) {
+      if (!i18n_news[lang]) return;
+      currentLang = lang;
+      try {
+        localStorage.setItem("regulus_lang", lang);
+      } catch (e) {}
+
+      document.documentElement.lang = lang;
+
+      const sel = document.getElementById("langSelector");
+      if (sel && sel.value !== lang) {
+        sel.value = lang;
+      }
+
+      const dict = i18n_news[lang] || i18n_news["ja"];
+
+      // テキスト更新
+      document.querySelectorAll("[data-i18n]").forEach(function(el) {
+        const key = el.getAttribute("data-i18n");
+        if (dict[key] !== undefined) {
+          el.innerHTML = dict[key];
+        }
+      });
+
+      // alt属性更新
+      document.querySelectorAll("[data-i18n-alt]").forEach(function(el) {
+        const key = el.getAttribute("data-i18n-alt");
+        if (dict[key] !== undefined) {
+          el.alt = dict[key];
+        }
+      });
+    }
+
+    // 初回適用
+    setLanguage(currentLang);
+
     // 1. 過去のService Worker（キャッシュ機構）の完全解除
     if ('serviceWorker' in navigator) {
       navigator.serviceWorker.getRegistrations().then(function(registrations) {
