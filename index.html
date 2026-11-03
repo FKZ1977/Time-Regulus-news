@@ -19,7 +19,7 @@
   <meta http-equiv="Expires" content="0">
   
   <!-- ★【重要】HTML更新時はここのバージョン番号を変更してください（例: 日付や 20261010_01 など）★ -->
-  <meta name="app-version" content="20261031_01">
+  <meta name="app-version" content="20261103_01">
    
   <!-- ファビコン・アプリアイコン設定 (Windows, Chrome, iPhone, Android対応) -->
   <link rel="icon" type="image/png" sizes="512x512" href="android-chrome-512x512.png?v=20261031">
@@ -99,13 +99,28 @@
       box-shadow: 0 0 12px rgba(0, 255, 224, 0.4);
     }
     .fkz {
-      font-family: 'serif'; 
-      color: var(--accent);
-      text-shadow: 0 0 15px rgba(0, 255, 224, 0.7);
+      /* サンプル画像に合わせた等幅（タイプライター風）ボールド書体 */
+      font-family: "Courier New", Courier, "Liberation Mono", "Nimbus Mono PS", monospace;
+      font-weight: bold;
+      letter-spacing: 0.04em;
+      color: #1de9d0;
+      text-shadow: 0 0 6px rgba(0, 255, 224, 0.8), 0 0 16px rgba(0, 255, 224, 0.55);
       margin: 0;
       font-size: 38px;
       opacity: 0; 
       animation: fadeIn 2s forwards; 
+    }
+    /* タイトル下のネオン風「News」ロゴ（背景透過PNG） */
+    img.news-logo {
+      width: 150px;
+      max-width: 60%;
+      height: auto;
+      margin: 0 auto 6px;
+      border: none;
+      border-radius: 0;
+      display: block;
+      opacity: 0;
+      animation: fadeIn 2s forwards 0.3s;
     }
     .subtitle {
       color: var(--text-sub);
@@ -198,6 +213,7 @@
     </div>
 
     <h1 class="fkz">Time Regulus</h1>
+    <img class="news-logo" src="news-neon.png?v=20261103" alt="News">
     <p class="subtitle" data-i18n="subtitle">v3.4.0 アップデートのお知らせ (2026/10/31)</p>
     
     <p class="notice-header" data-i18n="notice_header">
