@@ -19,7 +19,7 @@
   <meta http-equiv="Expires" content="0">
   
   <!-- ★【重要】HTML更新時はここのバージョン番号を変更してください（例: 日付や 20261010_01 など）★ -->
-  <meta name="app-version" content="20261103_01">
+  <meta name="app-version" content="20261103_02">
    
   <!-- ファビコン・アプリアイコン設定 (Windows, Chrome, iPhone, Android対応) -->
   <link rel="icon" type="image/png" sizes="512x512" href="android-chrome-512x512.png?v=20261031">
@@ -170,10 +170,11 @@
       border-radius: 8px;
     }
     .url-link {
-      word-break: break-all;
       display: block;
       margin-top: 10px;
-      font-size: 16px;
+      text-align: center;
+      font-size: clamp(11.5px, 3.4vw, 15px);
+      white-space: nowrap;
     }
     .pink-highlight-text {
       color: var(--pink-highlight); 
